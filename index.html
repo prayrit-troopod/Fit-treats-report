@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Troopod × Fit Treats · Growth Partnership</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0B0B0D;
+    --bg2: #111116;
+    --bg3: #18181F;
+    --bg4: #1F1F28;
+    --accent: #8B6BF7;
+    --accent2: #7B5CF5;
+    --accent-lt: #B49CFB;
+    --accent-dim: rgba(139,107,247,0.08);
+    --accent-border: rgba(139,107,247,0.22);
+    --accent-glow: rgba(139,107,247,0.18);
+    --green: #4FD18B;
+    --green-dim: rgba(79,209,139,0.1);
+    --amber: #E8A23D;
+    --amber-dim: rgba(232,162,61,0.1);
+    --text: #F2F2F4;
+    --text2: #8E8EA0;
+    --text3: #50505C;
+    --border: rgba(255,255,255,0.055);
+    --border2: rgba(255,255,255,0.1);
+    --radius: 14px;
+    --radius-sm: 9px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    font-size: 15px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(800px 500px at 85% -5%, rgba(139,107,247,0.13), transparent 60%),
+      radial-gradient(600px 400px at -10% 100%, rgba(123,92,245,0.08), transparent 55%);
+  }
+  .shell { display: flex; min-height: 100vh; position: relative; z-index: 1; }
+
+  /* ── SIDEBAR ── */
+  .sidebar {
+    width: 236px;
+    flex-shrink: 0;
+    position: fixed;
+    top: 0; left: 0; bottom: 0;
+    background: rgba(13,13,18,0.7);
+    backdrop-filter: blur(14px);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    overflow-y: auto;
+  }
+  .sb-logo {
+    padding: 22px 20px 18px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 11px;
+  }
+  .logo-ic {
+    width: 30px; height: 30px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    border-radius: 9px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 700; color: #fff;
+    box-shadow: 0 0 20px var(--accent-glow);
+    flex-shrink: 0;
+  }
+  .logo-text { font-size: 15px; font-weight: 600; letter-spacing: -0.3px; }
+  .logo-sub { font-size: 11px; color: var(--text3); margin-top: 1px; font-family: 'DM Mono', monospace; }
+  .sb-group {
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--text3);
+    letter-spacing: 1.3px;
+    text-transform: uppercase;
+    font-family: 'DM Mono', monospace;
+    padding: 20px 20px 7px;
+  }
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 13.5px;
+    color: var(--text2);
+    border-left: 2px solid transparent;
+    transition: all .15s;
+    user-select: none;
+  }
+  .nav:hover { color: var(--text); background: rgba(255,255,255,0.025); }
+  .nav.on { color: var(--accent); border-left-color: var(--accent); background: var(--accent-dim); }
+  .nav-n { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text3); width: 18px; flex-shrink: 0; }
+  .nav.on .nav-n { color: var(--accent); }
+  .sb-ft {
+    margin-top: auto;
+    padding: 16px 20px;
+    border-top: 1px solid var(--border);
+  }
+  .sb-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: var(--accent-dim);
+    border: 1px solid var(--accent-border);
+    border-radius: 20px;
+    padding: 7px 12px;
+    font-size: 12px;
+    color: var(--accent);
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+  /* ── MAIN ── */
+  .main { margin-left: 236px; flex: 1; min-width: 0; }
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 90;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 56px;
+    background: rgba(11,11,13,0.75);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+  .topbar-title { font-size: 14px; font-weight: 500; }
+  .topbar-meta { font-size: 11px; color: var(--text3); font-family: 'DM Mono', monospace; margin-top: 2px; }
+  .status-pill {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    background: var(--amber-dim);
+    border: 1px solid rgba(232,162,61,0.28);
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 12px;
+    color: var(--amber);
+    font-weight: 500;
+  }
+  .status-pill .dot { background: var(--amber); }
+
+  .content { padding: 60px 56px 100px; max-width: 900px; margin: 0 auto; }
+  .sec { display: none; animation: fade .5s cubic-bezier(.2,.7,.3,1) both; }
+  .sec.on { display: block; }
+  @keyframes fade { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:none} }
+
+  /* ── TYPOGRAPHY ── */
+  .eye {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    font-family: 'DM Mono', monospace;
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-size: 36px;
+    font-weight: 600;
+    letter-spacing: -0.9px;
+    line-height: 1.14;
+    margin-bottom: 14px;
+  }
+  h1 em {
+    font-style: normal;
+    background: linear-gradient(120deg, var(--accent-lt), var(--accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .lede {
+    font-size: 16px;
+    color: var(--text2);
+    line-height: 1.75;
+    max-width: 650px;
+    margin-bottom: 36px;
+  }
+  .mlbl {
+    font-size: 11px;
+    color: var(--text3);
+    letter-spacing: 1.3px;
+    text-transform: uppercase;
+    font-family: 'DM Mono', monospace;
+    margin: 32px 0 14px;
+  }
+  hr.div { border: none; border-top: 1px solid var(--border); margin: 30px 0; }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 22px;
+    margin-bottom: 10px;
+  }
+  .card-accent {
+    background: var(--accent-dim);
+    border-color: var(--accent-border);
+  }
+  .card-label { font-size: 11px; font-weight: 500; color: var(--accent); letter-spacing: 1px; text-transform: uppercase; font-family: 'DM Mono', monospace; margin-bottom: 7px; }
+  .card-title { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+  .card-body { font-size: 14px; color: var(--text2); line-height: 1.7; }
+
+  /* ── GRID ── */
+  .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .g3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .g4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+
+  /* ── STAT BLOCKS ── */
+  .stat-row { display: flex; gap: 36px; flex-wrap: wrap; margin: 8px 0 4px; }
+  .stat .n { font-size: 32px; font-weight: 600; letter-spacing: -0.8px; color: var(--accent); }
+  .stat .l { font-size: 12.5px; color: var(--text3); margin-top: 4px; }
+
+  /* ── PRODUCT TAG CHIPS ── */
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 4px; }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--bg3);
+    border: 1px solid var(--border2);
+    border-radius: 8px;
+    padding: 6px 13px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+  }
+  .chip .ic { color: var(--accent); font-size: 14px; }
+
+  /* ── SCOPE ROWS ── */
+  .scope-item {
+    display: flex;
+    gap: 16px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+  .scope-item:last-child { border-bottom: none; }
+  .scope-num {
+    width: 30px; height: 30px;
+    border-radius: 9px;
+    background: var(--accent-dim);
+    border: 1px solid var(--accent-border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 600; color: var(--accent);
+    font-family: 'DM Mono', monospace;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .scope-body .st { font-size: 15px; font-weight: 600; margin-bottom: 5px; }
+  .scope-body .sd { font-size: 13.5px; color: var(--text2); line-height: 1.65; }
+  .scope-body .tag { display: inline-block; margin-top: 8px; font-size: 11px; font-family: 'DM Mono', monospace; color: var(--accent); background: var(--accent-dim); border: 1px solid var(--accent-border); border-radius: 6px; padding: 3px 9px; }
+  .scope-body .tag-green { color: var(--green); background: var(--green-dim); border-color: rgba(79,209,139,0.22); }
+
+  /* ── TIMELINE ── */
+  .tl-item {
+    display: flex;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .tl-item:last-child { border-bottom: none; }
+  .tl-left { width: 90px; flex-shrink: 0; }
+  .tl-week { font-size: 11.5px; font-family: 'DM Mono', monospace; color: var(--accent); font-weight: 500; }
+  .tl-dur { font-size: 11px; color: var(--text3); margin-top: 2px; }
+  .tl-body .tt { font-size: 14.5px; font-weight: 600; margin-bottom: 4px; }
+  .tl-body .td { font-size: 13px; color: var(--text2); line-height: 1.6; }
+  .tl-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .tl-tag {
+    font-size: 11px;
+    font-family: 'DM Mono', monospace;
+    color: var(--text3);
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 2px 8px;
+  }
+
+  /* ── BADGE ── */
+  .badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    border-radius: 6px;
+    padding: 2px 9px;
+    font-family: 'DM Mono', monospace;
+  }
+  .badge-green { background: var(--green-dim); color: var(--green); border: 1px solid rgba(79,209,139,0.22); }
+  .badge-acc { background: var(--accent-dim); color: var(--accent); border: 1px solid var(--accent-border); }
+  .badge-amber { background: var(--amber-dim); color: var(--amber); border: 1px solid rgba(232,162,61,0.22); }
+
+  /* ── DELIVERABLES / WORK ITEMS ── */
+  .del-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .del-item:last-child { border-bottom: none; }
+  .del-ic {
+    width: 34px; height: 34px;
+    background: var(--bg3);
+    border: 1px solid var(--border2);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .del-body .dt { font-size: 14.5px; font-weight: 600; margin-bottom: 3px; }
+  .del-body .dd { font-size: 13px; color: var(--text2); line-height: 1.6; }
+
+  /* ── ASSETS / BULLETS ── */
+  .asset-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13.5px;
+    color: var(--text2);
+  }
+  .asset-item:last-child { border-bottom: none; }
+  .asset-item .bullet { color: var(--accent); flex-shrink: 0; margin-top: 3px; }
+  .asset-item strong { color: var(--text); }
+
+  /* ── NEXT STEPS ── */
+  .ns-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .ns-item:last-child { border-bottom: none; }
+  .ns-num {
+    width: 28px; height: 28px;
+    border-radius: 8px;
+    background: var(--accent-dim);
+    border: 1px solid var(--accent-border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 600; color: var(--accent);
+    font-family: 'DM Mono', monospace;
+    flex-shrink: 0;
+  }
+  .ns-body .nt { font-size: 14.5px; font-weight: 600; margin-bottom: 4px; }
+  .ns-body .nd { font-size: 13px; color: var(--text2); line-height: 1.6; }
+  .ns-own { margin-left: auto; font-size: 11px; color: var(--text3); font-family: 'DM Mono', monospace; border: 1px solid var(--border); background: var(--bg3); border-radius: 6px; padding: 3px 9px; flex-shrink: 0; white-space: nowrap; }
+
+  /* ── STAT COMPARE CARDS ── */
+  .compare-wrap { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin: 4px 0; }
+  .compare-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 20px 18px;
+  }
+  .compare-card .cc-label { font-size: 11px; font-weight: 500; color: var(--text3); letter-spacing: .8px; text-transform: uppercase; font-family: 'DM Mono', monospace; margin-bottom: 12px; }
+  .compare-card .cc-now { font-size: 28px; font-weight: 700; color: var(--text); letter-spacing: -0.6px; }
+  .compare-card .cc-was { font-size: 12.5px; color: var(--text3); margin-top: 4px; font-family: 'DM Mono', monospace; }
+  .compare-card .cc-delta { display: inline-flex; align-items: center; gap: 5px; margin-top: 10px; font-size: 12.5px; font-weight: 600; padding: 3px 9px; border-radius: 6px; }
+  .cc-delta.up-good { color: var(--green); background: var(--green-dim); border: 1px solid rgba(79,209,139,0.22); }
+  .cc-delta.up-watch { color: var(--amber); background: var(--amber-dim); border: 1px solid rgba(232,162,61,0.22); }
+
+  /* ── MOBILE NAV ── */
+  .mob-bar {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 200;
+    background: rgba(11,11,13,0.95);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 20px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .mob-logo { display: flex; align-items: center; gap: 10px; }
+  .mob-logo-ic { width: 28px; height: 28px; background: linear-gradient(135deg, var(--accent), var(--accent2)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: #fff; flex-shrink: 0; }
+  .mob-logo-t { font-size: 14px; font-weight: 600; }
+  .mob-logo-s { font-size: 10px; color: var(--text3); font-family: 'DM Mono', monospace; }
+  .hamburger { background: none; border: 1px solid var(--border2); border-radius: 8px; cursor: pointer; padding: 8px; display: flex; flex-direction: column; gap: 4px; }
+  .hamburger span { display: block; width: 18px; height: 2px; background: var(--text); border-radius: 2px; transition: all .2s; }
+  .mob-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 149; backdrop-filter: blur(2px); }
+  .mob-overlay.open { display: block; }
+  .sidebar.open { transform: translateX(0) !important; }
+
+  .mob-section-hint {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg3);
+    border: 1px solid var(--border2);
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 12px;
+    color: var(--text3);
+    font-family: 'DM Mono', monospace;
+    z-index: 50;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 768px) {
+    .mob-bar { display: flex; }
+    .mob-section-hint { display: block; }
+
+    .sidebar {
+      transform: translateX(-100%);
+      transition: transform .25s cubic-bezier(.2,.7,.3,1);
+      width: 280px;
+      z-index: 150;
+      top: 0;
+      left: 0;
+      right: auto;
+      bottom: 0;
+      height: 100vh;
+    }
+
+    .main { margin-left: 0; padding-top: 60px; }
+
+    .topbar { display: none; }
+
+    .content { padding: 28px 18px 100px; margin: 0 auto; }
+
+    h1 { font-size: 24px; letter-spacing: -0.5px; line-height: 1.2; }
+
+    .lede { font-size: 14.5px; }
+
+    .g2, .g3, .g4 { grid-template-columns: 1fr; }
+    .compare-wrap { grid-template-columns: 1fr; }
+
+    .metric-grid { grid-template-columns: 1fr 1fr !important; }
+
+    .tl-item { flex-direction: column; gap: 6px; }
+    .tl-left { width: auto; }
+
+    .scope-item { gap: 12px; }
+    .scope-num { width: 26px; height: 26px; font-size: 11px; flex-shrink: 0; }
+
+    .chips { gap: 6px; }
+    .chip { font-size: 12px; padding: 5px 10px; }
+
+    .card { padding: 16px 16px; }
+
+    .del-item { gap: 10px; }
+
+    .asset-item { font-size: 13px; }
+
+    .ns-item { flex-wrap: wrap; gap: 8px; }
+    .ns-own { margin-left: 0; }
+
+    .sb-ft { display: none; }
+  }
+
+  @media (max-width: 380px) {
+    h1 { font-size: 21px; }
+    .metric-grid { grid-template-columns: 1fr 1fr !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="shell">
+
+  <!-- ── MOBILE TOP BAR ── -->
+  <div class="mob-bar">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <button class="hamburger" onclick="toggleSidebar()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="mob-logo">
+        <div class="mob-logo-ic">T</div>
+        <div>
+          <div class="mob-logo-t">Troopod</div>
+          <div class="mob-logo-s">Fit Treats · Growth Partner</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── MOBILE OVERLAY ── -->
+  <div class="mob-overlay" id="mobOverlay" onclick="toggleSidebar()"></div>
+
+  <div class="mob-section-hint" id="sectionHint">01 · Engagement Overview</div>
+
+  <!-- ── SIDEBAR ── -->
+  <nav class="sidebar">
+    <div class="sb-logo">
+      <div class="logo-ic">T</div>
+      <div>
+        <div class="logo-text">Troopod</div>
+        <div class="logo-sub">Fit Treats · Growth Partner</div>
+      </div>
+    </div>
+
+    <div class="sb-group">Overview</div>
+    <div class="nav on" onclick="show('welcome',this)"><span class="nav-n">01</span>Engagement Overview</div>
+
+    <div class="sb-group">Performance</div>
+    <div class="nav" onclick="show('delivered',this)"><span class="nav-n">02</span>Work Delivered</div>
+    <div class="nav" onclick="show('impact',this)"><span class="nav-n">03</span>Impact &amp; Results</div>
+
+    <div class="sb-group">Future Scope</div>
+    <div class="nav" onclick="show('homepage',this)"><span class="nav-n">04</span>Homepage Redesign</div>
+    <div class="nav" onclick="show('collection',this)"><span class="nav-n">05</span>Collection Page &amp; Timeline</div>
+    <div class="nav" onclick="show('nextsteps',this)"><span class="nav-n">06</span>Process &amp; Next Steps</div>
+
+    <div class="sb-ft">
+      <div class="sb-pill">
+        <div class="dot"></div>
+        Fit Treats × Troopod
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── MAIN ── -->
+  <div class="main">
+    <div class="topbar">
+      <div>
+        <div class="topbar-title">Fit Treats · Growth Partnership</div>
+        <div class="topbar-meta">Recap &amp; Future Scope · Home + Collection Redesign</div>
+      </div>
+      <div class="status-pill">
+        <div class="dot"></div>
+        Awaiting Sign-off
+      </div>
+    </div>
+
+    <div class="content">
+
+      <!-- 01 OVERVIEW -->
+      <div class="sec on" id="welcome">
+        <div class="eye">01 · Engagement Overview</div>
+        <h1>From <em>live optimisations</em> to a full home experience redesign</h1>
+        <p class="lede">Over the past two months we've shipped a wide set of conversion-focused changes across your homepage, product pages and checkout. This document recaps what's live, what it moved, and lays out the next phase of work: a full homepage redesign followed by the collection page — both to be reviewed and approved before any development begins.</p>
+
+        <div class="mlbl">At a glance</div>
+        <div class="metric-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:4px;">
+          <div style="background:var(--bg2);border:1px solid var(--border2);border-radius:14px;padding:22px 20px;text-align:center;">
+            <div style="font-size:40px;font-weight:700;letter-spacing:-1.5px;color:var(--accent);font-family:'DM Mono',monospace;line-height:1;">30+</div>
+            <div style="font-size:12.5px;color:var(--text3);margin-top:8px;font-weight:500;">Live Optimisations</div>
+          </div>
+          <div style="background:var(--bg2);border:1px solid var(--border2);border-radius:14px;padding:22px 20px;text-align:center;">
+            <div style="font-size:40px;font-weight:700;letter-spacing:-1.5px;color:var(--accent);font-family:'DM Mono',monospace;line-height:1;">3</div>
+            <div style="font-size:12.5px;color:var(--text3);margin-top:8px;font-weight:500;">Surfaces Improved</div>
+          </div>
+          <div style="background:var(--bg2);border:1px solid var(--border2);border-radius:14px;padding:22px 20px;text-align:center;">
+            <div style="font-size:40px;font-weight:700;letter-spacing:-1.5px;color:var(--accent);font-family:'DM Mono',monospace;line-height:1;">+76%</div>
+            <div style="font-size:12.5px;color:var(--text3);margin-top:8px;font-weight:500;">Revenue / Active User</div>
+          </div>
+          <div style="background:var(--bg2);border:1px solid var(--border2);border-radius:14px;padding:22px 20px;text-align:center;">
+            <div style="font-size:40px;font-weight:700;letter-spacing:-1.5px;color:var(--accent);font-family:'DM Mono',monospace;line-height:1;">2 mo</div>
+            <div style="font-size:12.5px;color:var(--text3);margin-top:8px;font-weight:500;">Future Scope Duration</div>
+          </div>
+        </div>
+
+        <div class="mlbl">What this document covers</div>
+        <div class="g2" style="margin-top:4px;">
+          <div class="card">
+            <div class="card-label">Recap</div>
+            <div class="card-title">Work Delivered — Homepage, PDP &amp; Checkout</div>
+            <div class="card-body">Every change shipped across May–June, grouped by surface, all currently live.</div>
+          </div>
+          <div class="card">
+            <div class="card-label">Data</div>
+            <div class="card-title">Impact &amp; Results</div>
+            <div class="card-body">Google Analytics comparison of the post-change period against the prior baseline.</div>
+          </div>
+          <div class="card">
+            <div class="card-label">Future Scope</div>
+            <div class="card-title">Homepage Redesign, Then Collection Page</div>
+            <div class="card-body">A new home experience direction already shared for review, followed by a matching collection page redesign.</div>
+          </div>
+          <div class="card">
+            <div class="card-label">Process</div>
+            <div class="card-title">Timeline &amp; Approval Flow</div>
+            <div class="card-body">How the next 2 months are structured, and the review checkpoints before anything goes to development.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 02 WORK DELIVERED -->
+      <div class="sec" id="delivered">
+        <div class="eye">02 · Work Delivered</div>
+        <h1>What we've <em>shipped so far</em></h1>
+        <p class="lede">All items below are live on fittreats.in. Work ran across three surfaces in parallel — homepage, product pages (PDP) and checkout — each targeting a specific set of conversion metrics.</p>
+
+        <div class="mlbl">Homepage <span class="badge badge-green" style="margin-left:8px;">All Live</span></div>
+        <div class="card">
+          <div class="asset-item" style="padding-top:4px;"><div class="bullet">→</div><div><strong>Site-wide announcement bar</strong> — "5% off on prepaid orders" + "Free Dietitian Consultation"</div></div>
+          <div class="asset-item"><div class="bullet">→</div><div><strong>Consultation section</strong> — "Need help choosing the right solution?" module</div></div>
+          <div class="asset-item"><div class="bullet">→</div><div><strong>Banner slider</strong> highlighting Plant Protein &amp; Veg Collagen with benefit headline + dual CTA</div></div>
+          <div class="asset-item"><div class="bullet">→</div><div><strong>Founder story section</strong> — autoimmune journey, mission, authentic photo, link to About page</div></div>
+          <div class="asset-item"><div class="bullet">→</div><div><strong>Trust section</strong> — social proof strip, FSSAI/GMP badges, "trusted by X users" block</div></div>
+          <div class="asset-item"><div class="bullet">→</div><div><strong>Shop by Concern</strong> section redesigned (Thyroid, PCOS, Diabetes, Gut Health, Fatty Liver, Hypertension)</div></div>
+          <div class="asset-item"><div class="bullet">→</div><div><strong>Search bar</strong> and <strong>hamburger menu</strong> redesign</div></div>
+          <div class="asset-item" style="border-bottom:none;padding-bottom:4px;"><div class="bullet">→</div><div><strong>New product listings</strong> (incl. Yeast Protein Coffee/Chocolate, Veg O3 Algae, Curcumin) + benefit icon refresh across the catalogue</div></div>
+        </div>
+
+        <div class="mlbl">Product Pages (PDP) <span class="badge badge-green" style="margin-left:8px;">All Live</span></div>
+        <div class="card">
+          <div class="asset-item" style="padding-top:4px;"><div class="bullet">→</div><div><strong>Variant selector reframing</strong> — intent copy + savings amount per option ("Try it first / Most popular / Best value")</div></div>
+          <div class="asset-item"><div class="bullet">→</div><div><strong>Clinical ingredient studies section</strong> — benefit, study reference and citation badge per key ingredient; full description, ingredients, benefits, dosage and FAQ added to every product</div></div>
+          <div class="asset-item"><div class="bullet">→</div><div><strong>Visual cross-sell widget</strong> — "Complete your routine" one-click add cards below Add to Cart</div></div>
+          <div class="asset-item"><div class="bullet">→</div><div><strong>Video content in gallery</strong> — 30–60s how-to and founder story mixed into the image carousel</div></div>
+          <div class="asset-item"><div class="bullet">→</div><div><strong>Trust indicator strip</strong> and <strong>sticky mobile Add-to-Cart bar</strong></div></div>
+          <div class="asset-item"><div class="bullet">→</div><div><strong>Benefit-first headline</strong> above the fold, comparison table, and reordered layout (image → title → rating → price → offer → CTA) with live social-proof toasts</div></div>
+          <div class="asset-item"><div class="bullet">→</div><div><strong>Visual results timeline</strong> (Week 1 → Week 4 → Week 8) addressing the "does this actually work" objection — especially for Collagen</div></div>
+          <div class="asset-item" style="border-bottom:none;padding-bottom:4px;"><div class="bullet">→</div><div><strong>New Pista variant + SKU</strong> created; product card tags adjusted; shopable reels added for Collagen &amp; Fibre</div></div>
+        </div>
+
+        <div class="mlbl">Checkout <span class="badge badge-green" style="margin-left:8px;">All Live</span></div>
+        <div class="card">
+          <div class="asset-item" style="padding-top:4px;"><div class="bullet">→</div><div><strong>Trust &amp; support cues</strong> in checkout — returns/support link, security badge, delivery ETA, and clear COD availability</div></div>
+          <div class="asset-item"><div class="bullet">→</div><div><strong>Discount progress bar</strong> and refreshed <strong>free-gift</strong> imagery on the side cart</div></div>
+          <div class="asset-item" style="border-bottom:none;padding-bottom:4px;"><div class="bullet">→</div><div><strong>"You may also like" / best offers</strong> cross-sell module added to the side cart</div></div>
+        </div>
+
+        <div class="mlbl">What these changes targeted</div>
+        <div class="chips">
+          <div class="chip"><span class="ic">◆</span>AOV</div>
+          <div class="chip"><span class="ic">◆</span>CTR</div>
+          <div class="chip"><span class="ic">◆</span>CVR</div>
+          <div class="chip"><span class="ic">◆</span>Bounce Rate</div>
+          <div class="chip"><span class="ic">◆</span>Subscription Rate</div>
+          <div class="chip"><span class="ic">◆</span>Repeat Purchase Rate</div>
+          <div class="chip"><span class="ic">◆</span>Prepaid % / COD %</div>
+          <div class="chip"><span class="ic">◆</span>RTO Rate</div>
+        </div>
+      </div>
+
+      <!-- 03 IMPACT -->
+      <div class="sec" id="impact">
+        <div class="eye">03 · Impact &amp; Results</div>
+        <h1>The numbers <em>since these changes went live</em></h1>
+        <p class="lede">Google Analytics data comparing <strong style="color:var(--text);">13 Jun – 7 Jul 2026</strong> (post-changes) against the <strong style="color:var(--text);">7 – 31 May 2026</strong> baseline.</p>
+
+        <div class="compare-wrap">
+          <div class="compare-card">
+            <div class="cc-label">Avg. Purchase Revenue / Active User</div>
+            <div class="cc-now">₹42.61</div>
+            <div class="cc-was">vs ₹24.17 in May</div>
+            <div class="cc-delta up-good">▲ 76.3%</div>
+          </div>
+          <div class="compare-card">
+            <div class="cc-label">Bounce Rate</div>
+            <div class="cc-now">86.18%</div>
+            <div class="cc-was">vs 75.04% in May</div>
+            <div class="cc-delta up-watch">▲ 14.85%</div>
+          </div>
+          <div class="compare-card">
+            <div class="cc-label">Session Key Event Rate</div>
+            <div class="cc-now">3%</div>
+            <div class="cc-was">vs 1.8% in May</div>
+            <div class="cc-delta up-good">▲ 66.0%</div>
+          </div>
+        </div>
+
+        <div class="mlbl">Reading these numbers</div>
+        <div class="card card-accent" style="margin-top:4px;">
+          <div class="card-body">Revenue per active user grew <strong style="color:var(--text);">76.3%</strong> and key on-site engagement events grew <strong style="color:var(--text);">66%</strong> — direct evidence that the PDP, checkout and homepage changes above are converting visitors more effectively. Bounce rate also rose in the same window, which points to an entry-page (homepage) experience that isn't yet holding the growing traffic as well as it could. Beyond content and layout, this can also be a symptom of site speed — slow <strong style="color:var(--text);">First Contentful Paint (FCP)</strong> and <strong style="color:var(--text);">Largest Contentful Paint (LCP)</strong> cause visitors to leave before the page even finishes rendering. This design gap is exactly what the homepage redesign in the next section is built to close.</div>
+        </div>
+
+        <div class="mlbl">Top revenue-driving pages in this period</div>
+        <div class="card">
+          <div class="card-body" style="line-height:2;">All Day Fibre Pro · Plant Protein (incl. new Pista variant) · Veg Collagen — the same product pages upgraded in the PDP work above.</div>
+        </div>
+      </div>
+
+      <!-- 04 HOMEPAGE REDESIGN -->
+      <div class="sec" id="homepage">
+        <div class="eye">04 · Future Scope — Homepage Redesign</div>
+        <h1>Next up: <em>a full homepage experience</em></h1>
+        <p class="lede">We've already shared an initial home page direction with Ankit for review. This is <strong style="color:var(--text);">not a final design</strong> — it establishes the visual and storytelling direction we want to take Fit Treats' homepage in. All further changes to this direction will be shared for review, and it only moves into development once approved.</p>
+
+        <div style="margin-bottom:20px;padding:14px 18px;background:var(--amber-dim);border:1px solid rgba(232,162,61,0.25);border-radius:10px;font-size:13.5px;color:var(--amber);line-height:1.7;">
+          <strong style="color:var(--amber);">For direction only.</strong> The design shown is a reference for tone, layout and storytelling — not the final build. It will go through review rounds with the brand team before it's locked.
+        </div>
+
+        <div class="mlbl">What the new direction introduces</div>
+        <div class="card">
+          <div class="scope-item" style="padding-top:4px;">
+            <div class="scope-num">01</div>
+            <div class="scope-body"><div class="st">Rebuilt Hero</div><div class="sd">Benefit-led headline, rotating best-seller product carousel, and a trust row (FSSAI Certified, No Added Sugar, 10,000+ Customers) above the fold.</div></div>
+          </div>
+          <div class="scope-item">
+            <div class="scope-num">02</div>
+            <div class="scope-body"><div class="st">Best Sellers Grid</div><div class="sd">Cleaner product cards with clear pricing, offers and one-click add — designed to move faster on mobile.</div></div>
+          </div>
+          <div class="scope-item">
+            <div class="scope-num">03</div>
+            <div class="scope-body"><div class="st">Brand Story / Mission Section</div><div class="sd">Dt. Ankit Khosla's personal health journey told as a dedicated editorial section, with a stat callout and awards credibility built in.</div></div>
+          </div>
+          <div class="scope-item">
+            <div class="scope-num">04</div>
+            <div class="scope-body"><div class="st">Founder Video Section</div><div class="sd">"In his own words" video module — reinforcing trust and the root-cause positioning early in the scroll.</div></div>
+          </div>
+          <div class="scope-item">
+            <div class="scope-num">05</div>
+            <div class="scope-body"><div class="st">Awards &amp; Care Team</div><div class="sd">National recognition (Global Icon Awards, Brand Buzz Entertainment) paired with a "talk to our care team" consultation CTA.</div></div>
+          </div>
+          <div class="scope-item">
+            <div class="scope-num">06</div>
+            <div class="scope-body"><div class="st">Shop by Concern, Reworked</div><div class="sd">Thyroid, PCOS/PCOD, Diabetes, Gut Health, Fatty Liver, Hypertension — as a cleaner, faster-scanning grid.</div></div>
+          </div>
+          <div class="scope-item" style="border-bottom:none;padding-bottom:4px;">
+            <div class="scope-num">07</div>
+            <div class="scope-body"><div class="st">Testimonials, FAQ &amp; Consultation Band</div><div class="sd">Social proof, press mentions, an accordion FAQ, and a free-consultation signup band closing the page.</div></div>
+          </div>
+        </div>
+
+        <div class="mlbl">Not included in this direction</div>
+        <div class="card">
+          <div class="card-body">Final copy, product photography/video, and brand guideline sign-off — these will be layered in during the review rounds, sourced from the brand team where needed.</div>
+        </div>
+      </div>
+
+      <!-- 05 COLLECTION + TIMELINE -->
+      <div class="sec" id="collection">
+        <div class="eye">05 · Future Scope — Collection Page &amp; Timeline</div>
+        <h1>Then, <em>the collection page</em></h1>
+        <p class="lede">Once the homepage direction is finalised and approved, we move on to redesigning the collection/category listing pages using the same design language — so the experience feels like one brand from landing to browse to product.</p>
+
+        <div class="mlbl">What the collection redesign covers</div>
+        <div class="card">
+          <div class="asset-item" style="padding-top:4px;"><div class="bullet">→</div><div>Category hero banners and improved filter / sort UX</div></div>
+          <div class="asset-item"><div class="bullet">→</div><div>Product grid cards rebuilt to match the new homepage component system</div></div>
+          <div class="asset-item" style="border-bottom:none;padding-bottom:4px;"><div class="bullet">→</div><div>Shop-by-Concern integration carried through from the homepage</div></div>
+        </div>
+
+        <div style="margin-top:12px;padding:14px 18px;background:var(--amber-dim);border:1px solid rgba(232,162,61,0.25);border-radius:10px;font-size:13.5px;color:var(--amber);line-height:1.7;">
+          <strong style="color:var(--amber);">Sequenced, not parallel.</strong> Collection page design work begins only after the homepage direction is locked, so both surfaces share one consistent system rather than drifting apart.
+        </div>
+
+        <div class="mlbl">Indicative timeline — 2 months total</div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-week">Weeks 1–3</div></div>
+          <div class="tl-body">
+            <div class="tt">Homepage Design Review &amp; Sign-off</div>
+            <div class="td">Feedback rounds on the shared direction with the brand team. Revisions incorporated until final design sign-off.</div>
+            <div class="tl-tags"><span class="tl-tag">Review Rounds</span><span class="tl-tag">Brand Sign-off</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-week">Weeks 3–5</div></div>
+          <div class="tl-body">
+            <div class="tt">Homepage Development + Collection Page Design</div>
+            <div class="td">Homepage build begins on the signed-off design, while collection page design starts in parallel using the same component system.</div>
+            <div class="tl-tags"><span class="tl-tag">Dev Start</span><span class="tl-tag">Collection Design</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-week">Weeks 5–7</div></div>
+          <div class="tl-body">
+            <div class="tt">Collection Page Review, Sign-off &amp; Development</div>
+            <div class="td">Collection design reviewed and approved, then built out.</div>
+            <div class="tl-tags"><span class="tl-tag">Review &amp; Sign-off</span><span class="tl-tag">Dev</span></div>
+          </div>
+        </div>
+        <div class="tl-item" style="border-bottom:none;">
+          <div class="tl-left"><div class="tl-week">Weeks 7–8</div></div>
+          <div class="tl-body">
+            <div class="tt">QA, Staging &amp; Go-Live</div>
+            <div class="td">Cross-browser and mobile QA on both pages, staging review, and go-live on sign-off.</div>
+            <div class="tl-tags"><span class="tl-tag">QA</span><span class="tl-tag">Go-Live</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 06 PROCESS + NEXT STEPS -->
+      <div class="sec" id="nextsteps">
+        <div class="eye">06 · Process &amp; Next Steps</div>
+        <h1>How we'll <em>work together</em></h1>
+        <p class="lede">Same principle that's guided the work so far: nothing goes to development without your sign-off.</p>
+
+        <div class="mlbl">The approval rule</div>
+        <div class="card card-accent" style="margin-top:4px;margin-bottom:16px;">
+          <div class="card-label">Non-negotiable</div>
+          <div class="card-body">Every design change — homepage or collection page — is shared with the brand team for review first. <strong style="color:var(--text);">Development only begins after explicit approval</strong> of the design it's based on. No page goes live without a staging review and sign-off.</div>
+        </div>
+
+        <div class="mlbl">Next steps</div>
+        <div class="card">
+          <div class="ns-item" style="padding-top:4px;">
+            <div class="ns-num">01</div>
+            <div class="ns-body"><div class="nt">Confirm 2-Month Retainership Renewal</div><div class="nd">Renew the retainership covering this future scope, so the homepage and collection page redesign can be resourced and scheduled.</div></div>
+            <div class="ns-own">Brand Team</div>
+          </div>
+          <div class="ns-item">
+            <div class="ns-num">02</div>
+            <div class="ns-body"><div class="nt">Review the Homepage Direction</div><div class="nd">Walk through the shared direction and flag anything that needs to change before it's finalised.</div></div>
+            <div class="ns-own">Brand Team</div>
+          </div>
+          <div class="ns-item">
+            <div class="ns-num">03</div>
+            <div class="ns-body"><div class="nt">Consolidate Feedback</div><div class="nd">One round of consolidated feedback so revisions can be made in a single pass.</div></div>
+            <div class="ns-own">Brand Team</div>
+          </div>
+          <div class="ns-item">
+            <div class="ns-num">04</div>
+            <div class="ns-body"><div class="nt">Sign Off on Final Homepage Design</div><div class="nd">Written confirmation locks the design and triggers development.</div></div>
+            <div class="ns-own">Brand Team</div>
+          </div>
+          <div class="ns-item" style="border-bottom:none;padding-bottom:4px;">
+            <div class="ns-num">05</div>
+            <div class="ns-body"><div class="nt">Kick Off Collection Page Design</div><div class="nd">Troopod begins the collection page design using the approved homepage system.</div></div>
+            <div class="ns-own">Troopod</div>
+          </div>
+        </div>
+
+        <div class="mlbl">Questions or additions</div>
+        <div class="card card-accent" style="margin-top:4px;">
+          <div class="card-body">Happy to walk through any part of this — the results so far, or the homepage direction — on a call before sign-off.</div>
+        </div>
+      </div>
+
+    </div><!-- /content -->
+  </div><!-- /main -->
+</div><!-- /shell -->
+
+<script>
+  const sectionNames = {
+    welcome: '01 · Engagement Overview',
+    delivered: '02 · Work Delivered',
+    impact: '03 · Impact & Results',
+    homepage: '04 · Homepage Redesign',
+    collection: '05 · Collection Page & Timeline',
+    nextsteps: '06 · Process & Next Steps'
+  };
+
+  function show(id, el) {
+    document.querySelectorAll('.sec').forEach(s => s.classList.remove('on'));
+    document.querySelectorAll('.nav').forEach(n => n.classList.remove('on'));
+    document.getElementById(id).classList.add('on');
+    el.classList.add('on');
+    window.scrollTo(0, 0);
+    const hint = document.getElementById('sectionHint');
+    if (hint) hint.textContent = sectionNames[id] || '';
+    document.querySelector('.sidebar').classList.remove('open');
+    document.getElementById('mobOverlay').classList.remove('open');
+  }
+
+  function toggleSidebar() {
+    document.querySelector('.sidebar').classList.toggle('open');
+    document.getElementById('mobOverlay').classList.toggle('open');
+  }
+</script>
+</body>
+</html>
