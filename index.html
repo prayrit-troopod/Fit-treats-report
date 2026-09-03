@@ -519,12 +519,13 @@
 
     <div class="sb-group">Performance</div>
     <div class="nav" onclick="show('delivered',this)"><span class="nav-n">02</span>Work Delivered</div>
-    <div class="nav" onclick="show('impact',this)"><span class="nav-n">03</span>Impact &amp; Results</div>
+    <div class="nav" onclick="show('worklog',this)"><span class="nav-n">03</span>Post-Report Work Log</div>
+    <div class="nav" onclick="show('impact',this)"><span class="nav-n">04</span>Impact &amp; Results</div>
 
     <div class="sb-group">Future Scope</div>
-    <div class="nav" onclick="show('homepage',this)"><span class="nav-n">04</span>Homepage Redesign</div>
-    <div class="nav" onclick="show('collection',this)"><span class="nav-n">05</span>Collection Page &amp; Timeline</div>
-    <div class="nav" onclick="show('nextsteps',this)"><span class="nav-n">06</span>Process &amp; Next Steps</div>
+    <div class="nav" onclick="show('homepage',this)"><span class="nav-n">05</span>Homepage Redesign</div>
+    <div class="nav" onclick="show('collection',this)"><span class="nav-n">06</span>Collection Page &amp; Timeline</div>
+    <div class="nav" onclick="show('nextsteps',this)"><span class="nav-n">07</span>Process &amp; Next Steps</div>
 
     <div class="sb-ft">
       <div class="sb-pill">
@@ -539,7 +540,7 @@
     <div class="topbar">
       <div>
         <div class="topbar-title">Fit Treats · Growth Partnership</div>
-        <div class="topbar-meta">Recap &amp; Future Scope · Home + Collection Redesign</div>
+        <div class="topbar-meta">Recap, Post-Report Work Log &amp; Future Scope</div>
       </div>
       <div class="status-pill">
         <div class="dot"></div>
@@ -553,13 +554,13 @@
       <div class="sec on" id="welcome">
         <div class="eye">01 · Engagement Overview</div>
         <h1>From <em>live optimisations</em> to a full home experience redesign</h1>
-        <p class="lede">Over the past two months we've shipped a wide set of conversion-focused changes across your homepage, product pages and checkout. This document recaps what's live, what it moved, and lays out the next phase of work: a full homepage redesign followed by the collection page — both to be reviewed and approved before any development begins.</p>
+        <p class="lede">Over the past two months we've shipped a wide set of conversion-focused changes across your homepage, product pages and checkout, followed by a further <strong style="color:var(--text);">56.68 hours</strong> of correction, cleanup and content work across the catalogue. This document recaps what's live, what it moved, and lays out the next phase of work: a full homepage redesign followed by the collection page — both to be reviewed and approved before any development begins.</p>
 
         <div class="mlbl">At a glance</div>
         <div class="metric-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:4px;">
           <div style="background:var(--bg2);border:1px solid var(--border2);border-radius:14px;padding:22px 20px;text-align:center;">
-            <div style="font-size:40px;font-weight:700;letter-spacing:-1.5px;color:var(--accent);font-family:'DM Mono',monospace;line-height:1;">30+</div>
-            <div style="font-size:12.5px;color:var(--text3);margin-top:8px;font-weight:500;">Live Optimisations</div>
+            <div style="font-size:40px;font-weight:700;letter-spacing:-1.5px;color:var(--accent);font-family:'DM Mono',monospace;line-height:1;">50+</div>
+            <div style="font-size:12.5px;color:var(--text3);margin-top:8px;font-weight:500;">Optimisations Shipped</div>
           </div>
           <div style="background:var(--bg2);border:1px solid var(--border2);border-radius:14px;padding:22px 20px;text-align:center;">
             <div style="font-size:40px;font-weight:700;letter-spacing:-1.5px;color:var(--accent);font-family:'DM Mono',monospace;line-height:1;">3</div>
@@ -570,8 +571,8 @@
             <div style="font-size:12.5px;color:var(--text3);margin-top:8px;font-weight:500;">Revenue / Active User</div>
           </div>
           <div style="background:var(--bg2);border:1px solid var(--border2);border-radius:14px;padding:22px 20px;text-align:center;">
-            <div style="font-size:40px;font-weight:700;letter-spacing:-1.5px;color:var(--accent);font-family:'DM Mono',monospace;line-height:1;">2 mo</div>
-            <div style="font-size:12.5px;color:var(--text3);margin-top:8px;font-weight:500;">Future Scope Duration</div>
+            <div style="font-size:40px;font-weight:700;letter-spacing:-1.5px;color:var(--accent);font-family:'DM Mono',monospace;line-height:1;">56.68</div>
+            <div style="font-size:12.5px;color:var(--text3);margin-top:8px;font-weight:500;">Post-Report Hours Logged</div>
           </div>
         </div>
 
@@ -583,6 +584,11 @@
             <div class="card-body">Every change shipped across May–June, grouped by surface, all currently live.</div>
           </div>
           <div class="card">
+            <div class="card-label">Recap</div>
+            <div class="card-title">Post-Report Work Log &mdash; 56.68 Hours</div>
+            <div class="card-body">The correction, cleanup and merchandising work delivered after this report was first shared, plus what is still blocked on brand inputs.</div>
+          </div>
+          <div class="card">
             <div class="card-label">Data</div>
             <div class="card-title">Impact &amp; Results</div>
             <div class="card-body">Google Analytics comparison of the post-change period against the prior baseline.</div>
@@ -592,7 +598,7 @@
             <div class="card-title">Homepage Redesign, Then Collection Page</div>
             <div class="card-body">A new home experience direction already shared for review, followed by a matching collection page redesign.</div>
           </div>
-          <div class="card">
+          <div class="card" style="grid-column:1/-1;">
             <div class="card-label">Process</div>
             <div class="card-title">Timeline &amp; Approval Flow</div>
             <div class="card-body">How the next 2 months are structured, and the review checkpoints before anything goes to development.</div>
@@ -650,9 +656,90 @@
         </div>
       </div>
 
-      <!-- 03 IMPACT -->
+      <!-- 03 POST-REPORT WORK LOG -->
+      <div class="sec" id="worklog">
+        <div class="eye">03 · Post-Report Work Log</div>
+        <h1>Work shipped <em>after this report was shared</em></h1>
+        <p class="lede">Since this recap was first sent, a further block of correction, cleanup and content work was tracked and executed across the product pages and homepage. Everything below comes from the shared Fit Treats tracker &mdash; items marked <strong style="color:var(--text);">Developed</strong> are built and ready, and the items still open are blocked on inputs from the brand team, not on development.</p>
+
+        <div class="metric-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:4px;">
+          <div style="background:var(--bg2);border:1px solid var(--border2);border-radius:14px;padding:22px 20px;text-align:center;">
+            <div style="font-size:36px;font-weight:700;letter-spacing:-1.5px;color:var(--accent);font-family:'DM Mono',monospace;line-height:1;">56.68</div>
+            <div style="font-size:12.5px;color:var(--text3);margin-top:8px;font-weight:500;">Hours Logged</div>
+          </div>
+          <div style="background:var(--bg2);border:1px solid var(--border2);border-radius:14px;padding:22px 20px;text-align:center;">
+            <div style="font-size:36px;font-weight:700;letter-spacing:-1.5px;color:var(--accent);font-family:'DM Mono',monospace;line-height:1;">24</div>
+            <div style="font-size:12.5px;color:var(--text3);margin-top:8px;font-weight:500;">Items Developed</div>
+          </div>
+          <div style="background:var(--bg2);border:1px solid var(--border2);border-radius:14px;padding:22px 20px;text-align:center;">
+            <div style="font-size:36px;font-weight:700;letter-spacing:-1.5px;color:var(--accent);font-family:'DM Mono',monospace;line-height:1;">10</div>
+            <div style="font-size:12.5px;color:var(--text3);margin-top:8px;font-weight:500;">Product Pages Touched</div>
+          </div>
+          <div style="background:var(--bg2);border:1px solid var(--border2);border-radius:14px;padding:22px 20px;text-align:center;">
+            <div style="font-size:36px;font-weight:700;letter-spacing:-1.5px;color:var(--amber);font-family:'DM Mono',monospace;line-height:1;">8</div>
+            <div style="font-size:12.5px;color:var(--text3);margin-top:8px;font-weight:500;">Blocked on Brand Inputs</div>
+          </div>
+        </div>
+
+        <div class="mlbl">Hours logged</div>
+        <div class="card card-accent" style="margin-top:4px;">
+          <div class="card-label">Tracked effort</div>
+          <div class="card-body" style="font-family:'DM Mono',monospace;font-size:15px;color:var(--text);letter-spacing:-0.2px;">43.70h &nbsp;+&nbsp; 8.98h &nbsp;+&nbsp; 4.00h &nbsp;=&nbsp; <strong style="color:var(--accent);">56.68 hours</strong></div>
+          <div class="card-body" style="margin-top:10px;">Three tracked work blocks covering everything detailed below &mdash; the PDP data and content corrections, the site-wide layout cleanup and combos work, and the homepage additions. All of it sits outside the original recap scope.</div>
+        </div>
+
+        <div class="mlbl">Product page data &amp; content corrections <span class="badge badge-green" style="margin-left:8px;">Developed</span></div>
+        <div class="card">
+          <div class="asset-item" style="padding-top:4px;"><div class="bullet">&rarr;</div><div><strong>Vegan Omega-3</strong> &mdash; corrected EPA/DHA values (EPA 300mg &rarr; 100mg, DHA 100mg &rarr; 300mg) across the <em>Ingredients</em>, <em>Benefits</em> and <em>Competitors</em> sections, plus updated capsule imagery to the green capsule visual</div></div>
+          <div class="asset-item"><div class="bullet">&rarr;</div><div><strong>EAA Fruit Punch</strong> &mdash; corrected dosages (Amino Acid 7g &rarr; 5.6g, Leucine 2g &rarr; 1600mg, Taurine 500mg &rarr; 400mg) across the <em>Ingredients</em>, <em>Benefits</em> and <em>Competitors</em> sections</div></div>
+          <div class="asset-item"><div class="bullet">&rarr;</div><div><strong>She Rise Tea (Dip &amp; Loose)</strong> &mdash; PCOS updated to PMOS in the Benefits section, and "PCOS Wellness Support" updated to "PMOS Wellness Support" in the Competitors section; both variants brought in line</div></div>
+          <div class="asset-item"><div class="bullet">&rarr;</div><div><strong>Thyroblizz Tab</strong> &mdash; PCOS updated to PMOS in the Benefits section and in the Back-by-Science copy (Hormonal Balance &amp; Insulin Sensitivity)</div></div>
+          <div class="asset-item"><div class="bullet">&rarr;</div><div><strong>Yeast Protein</strong> &mdash; content correction and pricing update <span class="badge badge-green" style="margin-left:6px;">Live</span></div></div>
+          <div class="asset-item" style="border-bottom:none;padding-bottom:4px;"><div class="bullet">&rarr;</div><div><strong>All PDPs</strong> &mdash; full ingredients list built out and applied across the catalogue</div></div>
+        </div>
+
+        <div class="mlbl">Layout cleanup &amp; section removals <span class="badge badge-green" style="margin-left:8px;">Developed</span></div>
+        <div class="card">
+          <div class="asset-item" style="padding-top:4px;"><div class="bullet">&rarr;</div><div><strong>Icon / benefit badge strip removed</strong> from every PDP except Plant Protein &mdash; the Muscle Recovery / Clean Plant Protein / certification row sitting below the Buy Now button</div></div>
+          <div class="asset-item"><div class="bullet">&rarr;</div><div><strong>Chamomile Tea (Dip)</strong> &mdash; marked section removed here and everywhere else it appeared; benefit symbol sizing increased</div></div>
+          <div class="asset-item"><div class="bullet">&rarr;</div><div><strong>SlimAura Detox Tea</strong> &mdash; marked obsolete section removed, display images updated</div></div>
+          <div class="asset-item"><div class="bullet">&rarr;</div><div><strong>Melatonin Relax Pro</strong> &mdash; marked section removed</div></div>
+          <div class="asset-item" style="border-bottom:none;padding-bottom:4px;"><div class="bullet">&rarr;</div><div><strong>Chamomile &amp; tea range</strong> &mdash; listing and display images updated consistently across the tea SKUs</div></div>
+        </div>
+
+        <div class="mlbl">Merchandising &amp; content additions <span class="badge badge-green" style="margin-left:8px;">Developed</span></div>
+        <div class="card">
+          <div class="asset-item" style="padding-top:4px;"><div class="bullet">&rarr;</div><div><strong>Combos collection built in Shopify</strong> &mdash; all bundled combo products grouped into a dedicated collection, and the "View all combos &rarr;" link in the <em>Complete Your Routine</em> widget wired to it so it no longer lands on a generic product view</div></div>
+          <div class="asset-item"><div class="bullet">&rarr;</div><div><strong>"Priya from Mumbai" social proof section</strong> &mdash; placement confirmed and added</div></div>
+          <div class="asset-item"><div class="bullet">&rarr;</div><div><strong>Front-image ingredient callout</strong> &mdash; key nutritional figures (Protein 23g, Fibre 2g, and so on) added to the front image of every product, matching the Plant Protein treatment</div></div>
+          <div class="asset-item" style="border-bottom:none;padding-bottom:4px;"><div class="bullet">&rarr;</div><div><strong>Influencer videos added to PDPs</strong> &mdash; creator content mixed into the product page experience</div></div>
+        </div>
+
+        <div class="mlbl">Homepage <span class="badge badge-green" style="margin-left:8px;">Developed</span></div>
+        <div class="card">
+          <div class="asset-item" style="padding-top:4px;"><div class="bullet">&rarr;</div><div><strong>Sticky announcement bar</strong> &mdash; the top red marquee/announcement bar now sticks on scroll</div></div>
+          <div class="asset-item" style="border-bottom:none;padding-bottom:4px;"><div class="bullet">&rarr;</div><div><strong>Influencer videos on the homepage</strong> &mdash; creator content module added</div></div>
+        </div>
+
+        <div class="mlbl">Open &mdash; awaiting inputs from the brand team <span class="badge badge-amber" style="margin-left:8px;">Blocked</span></div>
+        <div style="margin-bottom:12px;padding:14px 18px;background:var(--amber-dim);border:1px solid rgba(232,162,61,0.25);border-radius:10px;font-size:13.5px;color:var(--amber);line-height:1.7;">
+          <strong style="color:var(--amber);">Not a development blocker.</strong> Each item below is ready to build the moment the creatives, copy or documents are shared. These are the fastest wins available right now.
+        </div>
+        <div class="card">
+          <div class="asset-item" style="padding-top:4px;"><div class="bullet">&rarr;</div><div><strong>Slim Aura Pro Shake</strong> &mdash; creatives and content missing from the document provided</div></div>
+          <div class="asset-item"><div class="bullet">&rarr;</div><div><strong>Liver Detox Tea</strong> &mdash; creatives and content missing from the document provided</div></div>
+          <div class="asset-item"><div class="bullet">&rarr;</div><div><strong>Dandelion Tea (Loose)</strong> &mdash; creatives and content missing from the document provided</div></div>
+          <div class="asset-item"><div class="bullet">&rarr;</div><div><strong>Hair Skin Nails Pro</strong> &mdash; creatives and content missing from the document provided</div></div>
+          <div class="asset-item"><div class="bullet">&rarr;</div><div><strong>She Rise &mdash; Back by Science</strong> &mdash; needs a new creative and copy for the PCOS &rarr; PMOS change</div></div>
+          <div class="asset-item"><div class="bullet">&rarr;</div><div><strong>Plant Protein</strong> &mdash; collection combos needed so the page can redirect to the right bundle pages</div></div>
+          <div class="asset-item"><div class="bullet">&rarr;</div><div><strong>Test reports</strong> &mdash; required for all PDPs before lab-report trust content can be published</div></div>
+          <div class="asset-item" style="border-bottom:none;padding-bottom:4px;"><div class="bullet">&rarr;</div><div><strong>Complete Your Routine</strong> &mdash; remaining combo mappings needed to finish rolling the section across every PDP</div></div>
+        </div>
+      </div>
+
+      <!-- 04 IMPACT -->
       <div class="sec" id="impact">
-        <div class="eye">03 · Impact &amp; Results</div>
+        <div class="eye">04 · Impact &amp; Results</div>
         <h1>The numbers <em>since these changes went live</em></h1>
         <p class="lede">Google Analytics data comparing <strong style="color:var(--text);">13 Jun – 7 Jul 2026</strong> (post-changes) against the <strong style="color:var(--text);">7 – 31 May 2026</strong> baseline.</p>
 
@@ -690,7 +777,7 @@
 
       <!-- 04 HOMEPAGE REDESIGN -->
       <div class="sec" id="homepage">
-        <div class="eye">04 · Future Scope — Homepage Redesign</div>
+        <div class="eye">05 · Future Scope — Homepage Redesign</div>
         <h1>Next up: <em>a full homepage experience</em></h1>
         <p class="lede">We've already shared an initial home page direction with Ankit for review. This is <strong style="color:var(--text);">not a final design</strong> — it establishes the visual and storytelling direction we want to take Fit Treats' homepage in. All further changes to this direction will be shared for review, and it only moves into development once approved.</p>
 
@@ -738,7 +825,7 @@
 
       <!-- 05 COLLECTION + TIMELINE -->
       <div class="sec" id="collection">
-        <div class="eye">05 · Future Scope — Collection Page &amp; Timeline</div>
+        <div class="eye">06 · Future Scope — Collection Page &amp; Timeline</div>
         <h1>Then, <em>the collection page</em></h1>
         <p class="lede">Once the homepage direction is finalised and approved, we move on to redesigning the collection/category listing pages using the same design language — so the experience feels like one brand from landing to browse to product.</p>
 
@@ -790,7 +877,7 @@
 
       <!-- 06 PROCESS + NEXT STEPS -->
       <div class="sec" id="nextsteps">
-        <div class="eye">06 · Process &amp; Next Steps</div>
+        <div class="eye">07 · Process &amp; Next Steps</div>
         <h1>How we'll <em>work together</em></h1>
         <p class="lede">Same principle that's guided the work so far: nothing goes to development without your sign-off.</p>
 
@@ -843,10 +930,11 @@
   const sectionNames = {
     welcome: '01 · Engagement Overview',
     delivered: '02 · Work Delivered',
-    impact: '03 · Impact & Results',
-    homepage: '04 · Homepage Redesign',
-    collection: '05 · Collection Page & Timeline',
-    nextsteps: '06 · Process & Next Steps'
+    worklog: '03 · Post-Report Work Log',
+    impact: '04 · Impact & Results',
+    homepage: '05 · Homepage Redesign',
+    collection: '06 · Collection Page & Timeline',
+    nextsteps: '07 · Process & Next Steps'
   };
 
   function show(id, el) {
