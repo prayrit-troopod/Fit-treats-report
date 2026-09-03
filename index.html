@@ -156,7 +156,7 @@
     color: var(--amber);
     font-weight: 500;
   }
-  .status-pill .dot { background: var(--amber); }
+  .status-pill .dot { background: var(--green); }
 
   .content { padding: 60px 56px 100px; max-width: 900px; margin: 0 auto; }
   .sec { display: none; animation: fade .5s cubic-bezier(.2,.7,.3,1) both; }
@@ -521,11 +521,6 @@
     <div class="nav" onclick="show('delivered',this)"><span class="nav-n">02</span>Work Delivered</div>
     <div class="nav" onclick="show('impact',this)"><span class="nav-n">03</span>Impact &amp; Results</div>
 
-    <div class="sb-group">Future Scope</div>
-    <div class="nav" onclick="show('homepage',this)"><span class="nav-n">04</span>Homepage Redesign</div>
-    <div class="nav" onclick="show('collection',this)"><span class="nav-n">05</span>Collection Page &amp; Timeline</div>
-    <div class="nav" onclick="show('nextsteps',this)"><span class="nav-n">06</span>Process &amp; Next Steps</div>
-
     <div class="sb-ft">
       <div class="sb-pill">
         <div class="dot"></div>
@@ -539,11 +534,11 @@
     <div class="topbar">
       <div>
         <div class="topbar-title">Fit Treats · Growth Partnership</div>
-        <div class="topbar-meta">Consolidated Recap &amp; Future Scope</div>
+        <div class="topbar-meta">Consolidated Delivery Recap</div>
       </div>
       <div class="status-pill">
         <div class="dot"></div>
-        Awaiting Sign-off
+        All Work Live
       </div>
     </div>
 
@@ -552,8 +547,8 @@
       <!-- 01 OVERVIEW -->
       <div class="sec on" id="welcome">
         <div class="eye">01 · Engagement Overview</div>
-        <h1>From <em>live optimisations</em> to a full home experience redesign</h1>
-        <p class="lede">Over the past two months we've shipped a wide set of conversion-focused changes across your homepage, product pages and checkout — <strong style="color:var(--text);">322.28 hours</strong> of tracked work in total. This document recaps what's live, what it moved, and lays out the next phase of work: a full homepage redesign followed by the collection page — both to be reviewed and approved before any development begins.</p>
+        <h1>Two months of <em>live optimisations</em>, end to end</h1>
+        <p class="lede">Over the past two months we've shipped a wide set of conversion-focused changes across your homepage, product pages and checkout — <strong style="color:var(--text);">322.28 hours</strong> of tracked work in total. This document recaps everything that's live and what it moved.</p>
 
         <div class="mlbl">At a glance</div>
         <div class="metric-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:4px;">
@@ -586,16 +581,6 @@
             <div class="card-label">Data</div>
             <div class="card-title">Impact &amp; Results</div>
             <div class="card-body">Google Analytics comparison of the post-change period against the prior baseline.</div>
-          </div>
-          <div class="card">
-            <div class="card-label">Future Scope</div>
-            <div class="card-title">Homepage Redesign, Then Collection Page</div>
-            <div class="card-body">A new home experience direction already shared for review, followed by a matching collection page redesign.</div>
-          </div>
-          <div class="card">
-            <div class="card-label">Process</div>
-            <div class="card-title">Timeline &amp; Approval Flow</div>
-            <div class="card-body">How the next 2 months are structured, and the review checkpoints before anything goes to development.</div>
           </div>
         </div>
       </div>
@@ -757,159 +742,12 @@
 
         <div class="mlbl">Reading these numbers</div>
         <div class="card card-accent" style="margin-top:4px;">
-          <div class="card-body">Revenue per active user grew <strong style="color:var(--text);">76.3%</strong> and key on-site engagement events grew <strong style="color:var(--text);">66%</strong> — direct evidence that the PDP, checkout and homepage changes above are converting visitors more effectively. Bounce rate also rose in the same window, which points to an entry-page (homepage) experience that isn't yet holding the growing traffic as well as it could. Beyond content and layout, this can also be a symptom of site speed — slow <strong style="color:var(--text);">First Contentful Paint (FCP)</strong> and <strong style="color:var(--text);">Largest Contentful Paint (LCP)</strong> cause visitors to leave before the page even finishes rendering. This design gap is exactly what the homepage redesign in the next section is built to close.</div>
+          <div class="card-body">Revenue per active user grew <strong style="color:var(--text);">76.3%</strong> and key on-site engagement events grew <strong style="color:var(--text);">66%</strong> — direct evidence that the PDP, checkout and homepage changes above are converting visitors more effectively. Bounce rate also rose in the same window, which points to an entry-page (homepage) experience that isn't yet holding the growing traffic as well as it could. Beyond content and layout, this can also be a symptom of site speed — slow <strong style="color:var(--text);">First Contentful Paint (FCP)</strong> and <strong style="color:var(--text);">Largest Contentful Paint (LCP)</strong> cause visitors to leave before the page even finishes rendering.</div>
         </div>
 
         <div class="mlbl">Top revenue-driving pages in this period</div>
         <div class="card">
           <div class="card-body" style="line-height:2;">All Day Fibre Pro · Plant Protein (incl. new Pista variant) · Veg Collagen — the same product pages upgraded in the PDP work above.</div>
-        </div>
-      </div>
-
-      <!-- 04 HOMEPAGE REDESIGN -->
-      <div class="sec" id="homepage">
-        <div class="eye">04 · Future Scope — Homepage Redesign</div>
-        <h1>Next up: <em>a full homepage experience</em></h1>
-        <p class="lede">We've already shared an initial home page direction with Ankit for review. This is <strong style="color:var(--text);">not a final design</strong> — it establishes the visual and storytelling direction we want to take Fit Treats' homepage in. All further changes to this direction will be shared for review, and it only moves into development once approved.</p>
-
-        <div style="margin-bottom:20px;padding:14px 18px;background:var(--amber-dim);border:1px solid rgba(232,162,61,0.25);border-radius:10px;font-size:13.5px;color:var(--amber);line-height:1.7;">
-          <strong style="color:var(--amber);">For direction only.</strong> The design shown is a reference for tone, layout and storytelling — not the final build. It will go through review rounds with the brand team before it's locked.
-        </div>
-
-        <div class="mlbl">What the new direction introduces</div>
-        <div class="card">
-          <div class="scope-item" style="padding-top:4px;">
-            <div class="scope-num">01</div>
-            <div class="scope-body"><div class="st">Rebuilt Hero</div><div class="sd">Benefit-led headline, rotating best-seller product carousel, and a trust row (FSSAI Certified, No Added Sugar, 10,000+ Customers) above the fold.</div></div>
-          </div>
-          <div class="scope-item">
-            <div class="scope-num">02</div>
-            <div class="scope-body"><div class="st">Best Sellers Grid</div><div class="sd">Cleaner product cards with clear pricing, offers and one-click add — designed to move faster on mobile.</div></div>
-          </div>
-          <div class="scope-item">
-            <div class="scope-num">03</div>
-            <div class="scope-body"><div class="st">Brand Story / Mission Section</div><div class="sd">Dt. Ankit Khosla's personal health journey told as a dedicated editorial section, with a stat callout and awards credibility built in.</div></div>
-          </div>
-          <div class="scope-item">
-            <div class="scope-num">04</div>
-            <div class="scope-body"><div class="st">Founder Video Section</div><div class="sd">"In his own words" video module — reinforcing trust and the root-cause positioning early in the scroll.</div></div>
-          </div>
-          <div class="scope-item">
-            <div class="scope-num">05</div>
-            <div class="scope-body"><div class="st">Awards &amp; Care Team</div><div class="sd">National recognition (Global Icon Awards, Brand Buzz Entertainment) paired with a "talk to our care team" consultation CTA.</div></div>
-          </div>
-          <div class="scope-item">
-            <div class="scope-num">06</div>
-            <div class="scope-body"><div class="st">Shop by Concern, Reworked</div><div class="sd">Thyroid, PCOS/PCOD, Diabetes, Gut Health, Fatty Liver, Hypertension — as a cleaner, faster-scanning grid.</div></div>
-          </div>
-          <div class="scope-item" style="border-bottom:none;padding-bottom:4px;">
-            <div class="scope-num">07</div>
-            <div class="scope-body"><div class="st">Testimonials, FAQ &amp; Consultation Band</div><div class="sd">Social proof, press mentions, an accordion FAQ, and a free-consultation signup band closing the page.</div></div>
-          </div>
-        </div>
-
-        <div class="mlbl">Not included in this direction</div>
-        <div class="card">
-          <div class="card-body">Final copy, product photography/video, and brand guideline sign-off — these will be layered in during the review rounds, sourced from the brand team where needed.</div>
-        </div>
-      </div>
-
-      <!-- 05 COLLECTION + TIMELINE -->
-      <div class="sec" id="collection">
-        <div class="eye">05 · Future Scope — Collection Page &amp; Timeline</div>
-        <h1>Then, <em>the collection page</em></h1>
-        <p class="lede">Once the homepage direction is finalised and approved, we move on to redesigning the collection/category listing pages using the same design language — so the experience feels like one brand from landing to browse to product.</p>
-
-        <div class="mlbl">What the collection redesign covers</div>
-        <div class="card">
-          <div class="asset-item" style="padding-top:4px;"><div class="bullet">→</div><div>Category hero banners and improved filter / sort UX</div></div>
-          <div class="asset-item"><div class="bullet">→</div><div>Product grid cards rebuilt to match the new homepage component system</div></div>
-          <div class="asset-item" style="border-bottom:none;padding-bottom:4px;"><div class="bullet">→</div><div>Shop-by-Concern integration carried through from the homepage</div></div>
-        </div>
-
-        <div style="margin-top:12px;padding:14px 18px;background:var(--amber-dim);border:1px solid rgba(232,162,61,0.25);border-radius:10px;font-size:13.5px;color:var(--amber);line-height:1.7;">
-          <strong style="color:var(--amber);">Sequenced, not parallel.</strong> Collection page design work begins only after the homepage direction is locked, so both surfaces share one consistent system rather than drifting apart.
-        </div>
-
-        <div class="mlbl">Indicative timeline — 2 months total</div>
-        <div class="tl-item">
-          <div class="tl-left"><div class="tl-week">Weeks 1–3</div></div>
-          <div class="tl-body">
-            <div class="tt">Homepage Design Review &amp; Sign-off</div>
-            <div class="td">Feedback rounds on the shared direction with the brand team. Revisions incorporated until final design sign-off.</div>
-            <div class="tl-tags"><span class="tl-tag">Review Rounds</span><span class="tl-tag">Brand Sign-off</span></div>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-left"><div class="tl-week">Weeks 3–5</div></div>
-          <div class="tl-body">
-            <div class="tt">Homepage Development + Collection Page Design</div>
-            <div class="td">Homepage build begins on the signed-off design, while collection page design starts in parallel using the same component system.</div>
-            <div class="tl-tags"><span class="tl-tag">Dev Start</span><span class="tl-tag">Collection Design</span></div>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-left"><div class="tl-week">Weeks 5–7</div></div>
-          <div class="tl-body">
-            <div class="tt">Collection Page Review, Sign-off &amp; Development</div>
-            <div class="td">Collection design reviewed and approved, then built out.</div>
-            <div class="tl-tags"><span class="tl-tag">Review &amp; Sign-off</span><span class="tl-tag">Dev</span></div>
-          </div>
-        </div>
-        <div class="tl-item" style="border-bottom:none;">
-          <div class="tl-left"><div class="tl-week">Weeks 7–8</div></div>
-          <div class="tl-body">
-            <div class="tt">QA, Staging &amp; Go-Live</div>
-            <div class="td">Cross-browser and mobile QA on both pages, staging review, and go-live on sign-off.</div>
-            <div class="tl-tags"><span class="tl-tag">QA</span><span class="tl-tag">Go-Live</span></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 06 PROCESS + NEXT STEPS -->
-      <div class="sec" id="nextsteps">
-        <div class="eye">06 · Process &amp; Next Steps</div>
-        <h1>How we'll <em>work together</em></h1>
-        <p class="lede">Same principle that's guided the work so far: nothing goes to development without your sign-off.</p>
-
-        <div class="mlbl">The approval rule</div>
-        <div class="card card-accent" style="margin-top:4px;margin-bottom:16px;">
-          <div class="card-label">Non-negotiable</div>
-          <div class="card-body">Every design change — homepage or collection page — is shared with the brand team for review first. <strong style="color:var(--text);">Development only begins after explicit approval</strong> of the design it's based on. No page goes live without a staging review and sign-off.</div>
-        </div>
-
-        <div class="mlbl">Next steps</div>
-        <div class="card">
-          <div class="ns-item" style="padding-top:4px;">
-            <div class="ns-num">01</div>
-            <div class="ns-body"><div class="nt">Confirm 2-Month Retainership Renewal</div><div class="nd">Renew the retainership covering this future scope, so the homepage and collection page redesign can be resourced and scheduled.</div></div>
-            <div class="ns-own">Brand Team</div>
-          </div>
-          <div class="ns-item">
-            <div class="ns-num">02</div>
-            <div class="ns-body"><div class="nt">Review the Homepage Direction</div><div class="nd">Walk through the shared direction and flag anything that needs to change before it's finalised.</div></div>
-            <div class="ns-own">Brand Team</div>
-          </div>
-          <div class="ns-item">
-            <div class="ns-num">03</div>
-            <div class="ns-body"><div class="nt">Consolidate Feedback</div><div class="nd">One round of consolidated feedback so revisions can be made in a single pass.</div></div>
-            <div class="ns-own">Brand Team</div>
-          </div>
-          <div class="ns-item">
-            <div class="ns-num">04</div>
-            <div class="ns-body"><div class="nt">Sign Off on Final Homepage Design</div><div class="nd">Written confirmation locks the design and triggers development.</div></div>
-            <div class="ns-own">Brand Team</div>
-          </div>
-          <div class="ns-item" style="border-bottom:none;padding-bottom:4px;">
-            <div class="ns-num">05</div>
-            <div class="ns-body"><div class="nt">Kick Off Collection Page Design</div><div class="nd">Troopod begins the collection page design using the approved homepage system.</div></div>
-            <div class="ns-own">Troopod</div>
-          </div>
-        </div>
-
-        <div class="mlbl">Questions or additions</div>
-        <div class="card card-accent" style="margin-top:4px;">
-          <div class="card-body">Happy to walk through any part of this — the results so far, or the homepage direction — on a call before sign-off.</div>
         </div>
       </div>
 
@@ -921,10 +759,7 @@
   const sectionNames = {
     welcome: '01 · Engagement Overview',
     delivered: '02 · Work Delivered',
-    impact: '03 · Impact & Results',
-    homepage: '04 · Homepage Redesign',
-    collection: '05 · Collection Page & Timeline',
-    nextsteps: '06 · Process & Next Steps'
+    impact: '03 · Impact & Results'
   };
 
   function show(id, el) {
